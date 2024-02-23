@@ -1,10 +1,11 @@
-
+import { useState } from "react";
+import TaskButton from "../components/Task/Task";
 import TasksList from "../components/TaskList/taskListe";
 function TaskPage() {
   const steps = ["enter the title", "click on the button"];
   const loading = false;
 
-  const tasks = [
+  const [tasks,setTasks] = useState ([
     {
       _id: "1",
       title: "learn html",
@@ -12,17 +13,31 @@ function TaskPage() {
     },
     { _id: "2", title: "learn react", duration: "120" },
     { _id: "3", title: "learn angular", duration: "180" },
-  ]
+  ]);
 
+  const [isVisibal, setIsVisibal] = useState(true);
+
+  function handleVisibility() {
+    setIsVisibal(!isVisibal);
+  }
+
+  function addTask(title, duration) {
+    console.log("title,duration :", title, duration);
+    const newTasks ={ _id: tasks.length + 1 +"", title, duration}
+    setTasks([...tasks,newTasks])
+  }
+
+ 
+  
   return (
     <div className="taskpage">
       <ul>
-        {steps.map((s) => {
-          return <li>{s}</li>;
+        {steps.map((s, index) => {
+          return <li key={index}>{s}</li>;
         })}
       </ul>
+      <button onClick={handleVisibility}> Toggle visibility</button>
 
-     
       {/* {loading ? (
         <div>loading...</div>
       ) : (
@@ -33,9 +48,10 @@ function TaskPage() {
         </>
       )} */}
       {loading && <div>loading ...</div>}
-      {!loading && (
+      {!loading && isVisibal && (
         <>
-        <TasksList tasks={tasks}/>
+          <TaskButton addTask={addTask} />
+          <TasksList tasks={tasks} />
           {/* <Task
             title="learn Html"
             duration={60}
