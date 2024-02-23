@@ -1,5 +1,4 @@
 
-import Task from "../components/TaskForm/TaskFrom";
 import TasksList from "../components/TaskList/taskListe";
 function TaskPage() {
   const steps = ["enter the title", "click on the button"];
@@ -23,7 +22,7 @@ function TaskPage() {
         })}
       </ul>
 
-      <TaskButton />
+     
       {/* {loading ? (
         <div>loading...</div>
       ) : (

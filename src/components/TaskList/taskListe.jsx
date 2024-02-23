@@ -1,4 +1,4 @@
-import Task from "../task/Task"
+import TaskForm from "../TaskForm/TaskFrom"
 
 function TasksList(props) {
   console.log(props.tasks)
@@ -6,7 +6,7 @@ function TasksList(props) {
     <div className="tasks-list">
       {props.tasks.map((t) => {
         return (
-          <Task key={t._id} _id={t._id} title={t.title} duration={t.duration} />
+          <TaskForm key={t._id} _id={t._id} title={t.title} duration={t.duration} />
         )
       })}
     </div>

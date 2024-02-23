@@ -8,7 +8,7 @@ function Task(props) {
       <div className="task" style={{ backgroundColor: "cyan" }}>
         <div classNameName="title">{props.title}</div>
         <div classNameName="title">{props.duration}</div>
-        <div classNameName="title">{props.details.level}</div>
+        {/* <div classNameName="title">{props.details.level}</div> */}
         <div classNameName="actions">
           <span>delete</span>
 
