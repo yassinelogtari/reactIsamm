@@ -2,6 +2,8 @@ import "./taskform.css";
 function Task(props) {
   console.log("props: ", props);
 
+
+  
   return (
     <div className="TaskForm">
       <form action="" className="form"></form>
@@ -10,7 +12,7 @@ function Task(props) {
         <div classNameName="title">{props.duration}</div>
         {/* <div classNameName="title">{props.details.level}</div> */}
         <div classNameName="actions">
-          <span>delete</span>
+        <span onClick={props.deleteTask}>delete</span>
 
           <span>update</span>
         </div>

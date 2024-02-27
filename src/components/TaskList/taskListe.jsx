@@ -1,16 +1,18 @@
-import TaskForm from "../TaskForm/TaskFrom"
+import TaskForm from "../TaskForm/TaskFrom";
 
-function TasksList(props) {
-  console.log(props.tasks)
+function TasksList({ tasks, deleteTask }) {
   return (
-    <div className="tasks-list">
-      {props.tasks.map((t) => {
-        return (
-          <TaskForm key={t._id} _id={t._id} title={t.title} duration={t.duration} />
-        )
-      })}
+    <div>
+      {tasks.map(task => (
+        <TaskForm
+          key={task._id}
+          title={task.title}
+          duration={task.duration}
+          deleteTask={() => deleteTask(task._id)}
+        />
+      ))}
     </div>
-  )
+  );
 }
 
-export default TasksList
+export default TasksList;

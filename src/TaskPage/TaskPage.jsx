@@ -5,7 +5,7 @@ function TaskPage() {
   const steps = ["enter the title", "click on the button"];
   const loading = false;
 
-  const [tasks,setTasks] = useState ([
+  const [tasks, setTasks] = useState([
     {
       _id: "1",
       title: "learn html",
@@ -23,12 +23,14 @@ function TaskPage() {
 
   function addTask(title, duration) {
     console.log("title,duration :", title, duration);
-    const newTasks ={ _id: tasks.length + 1 +"", title, duration}
-    setTasks([...tasks,newTasks])
+    const newTasks = { _id: tasks.length + 1 + "", title, duration };
+    setTasks([...tasks, newTasks]);
   }
 
- 
-  
+  function deleteTask(id) {
+    setTasks(tasks.filter((task) => task._id !== id));
+  }
+
   return (
     <div className="taskpage">
       <ul>
@@ -51,7 +53,7 @@ function TaskPage() {
       {!loading && isVisibal && (
         <>
           <TaskButton addTask={addTask} />
-          <TasksList tasks={tasks} />
+          <TasksList tasks={tasks} deleteTask={deleteTask} />
           {/* <Task
             title="learn Html"
             duration={60}
