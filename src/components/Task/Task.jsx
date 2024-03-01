@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function TaskButton(props) {
   //props.sayHello("isamm")
@@ -12,7 +12,6 @@ function TaskButton(props) {
   }
 
   function handleClick() {
-    console.log("hand");
     props.addTask(title,duration)
   }
   return (

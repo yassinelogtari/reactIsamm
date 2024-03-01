@@ -6,6 +6,7 @@ function TasksList({ tasks, deleteTask }) {
       {tasks.map(task => (
         <TaskForm
           key={task._id}
+          _id={task._id}
           title={task.title}
           duration={task.duration}
           deleteTask={() => deleteTask(task._id)}
