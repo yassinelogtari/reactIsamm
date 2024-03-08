@@ -24,3 +24,7 @@
 .custom-task{
     color: red;
 }
+
+.title{
+    cursor: pointer;
+}
